@@ -38,33 +38,35 @@ function getPathParts(urlString){
 
 function getCapitalCount(arr) {
   var count = 0;
-  var capitalLetterIndex = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
   for(var key of arr) {
-    var currentWord = key;
-    var splitWord = currentWord.split();
-
-    if (splitWord.some(checkForCapital));
-    {
-      console.log(splitWord);
-    }
-
-    function checkForCapital(splitWord) {
-      console.log(splitWord);
-      console.log(currentWord);
-      return splitWord.includes(capitalLetterIndex);
+    if(key[0].toUpperCase() === key[0]) {
+      count++;
     }
   }
-
-
-  return count;
+    return count;
 }
 
-function correctCalcChecker(){
-
-
+function correctCalcChecker(equations) {
+  var results = [];
+  for (var key in equations) {
+    if (equations[key].result === doMath(equations[key])) {
+      results.push(equations[key]);
+    }
+  }
+  return results;
 }
 
-function doMath(){
-
+function doMath(equationObj){
+  if (equationObj.op === '+') {
+    return equationObj.num1 + equationObj.num2;
+  }
+  else if (equationObj.op === '-') {
+    return equationObj.num1 - equationObj.num2;
+  }
+  else if (equationObj.op === '*') {
+    return equationObj.num1 * equationObj.num2;
+  }
+  else if (equationObj.op === '/') {
+    return equationObj.num1 / equationObj.num2;
+  }
 }
