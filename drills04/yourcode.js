@@ -1,48 +1,56 @@
 
 
 function changeElements(classToChange){
-  debugger;
-  switch (classToChange) {
+  $(classToChange).each(function(index) {
+    switch ($(this).text()) {
       case 'one':
-        $(classToChange).innerText = '1';
+        $(this).text('1');
         break;
       case 'two':
-        $(classToChange).innerText = '2';
+        $(this).text('2');
         break;
       case 'three':
-        $(classToChange).innerText = '3';
+        $(this).text('3');
         break;
       case 'four':
-        $(classToChange).innerText = '4';
+        $(this).text('4');
         break;
       case 'five':
-        $(classToChange).innerText = '5';
+        $(this).text('5');
         break;
       case 'six':
-        $(classToChange).innerText = '6';
+        $(this).text('6');
         break;
       case 'seven':
-        $(classToChange).innerText = '7';
+        $(this).text('7');
         break;
       case 'eight':
-        $(classToChange).innerText = '8';
+        $(this).text('8');
         break;
       case 'nine':
-        $(classToChange).innerText = '9';
+        $(this).text('9');
         break;
       }
+    });
 }
 
-function appendTextToElement(){
-
+function appendTextToElement(element, change){
+  $(element).each(function(index) {
+    $(this).text($(this).text().concat(change));
+  });
 }
 
 function addClass(classToChange, classToAdd){
   var count = 0;
-  $(classToChange).addClass(classToAdd);
+  $(classToChange).each(function(index) {
+    $(this).addClass(classToAdd);
+    count++;
+  });
   return count;
 }
 
-function removeElements(){
-
+function removeElements(toRemove){
+  $(toRemove).each(function(index) {
+    $(this).remove();
+  });
 }
