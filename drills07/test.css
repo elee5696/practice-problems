@@ -1,0 +1,11 @@
+#parentDiv > .noMakeGreen {
+  color: blue;
+}
+
+.makeRed {
+  color: red;
+}
+
+section {
+  background-color: purple;
+}
